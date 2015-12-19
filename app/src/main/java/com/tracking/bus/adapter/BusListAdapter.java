@@ -62,7 +62,7 @@ public class BusListAdapter extends BaseAdapter {
 
         busNum.setText(busList.getBusNumber());
         //busRoute.setText(busList.getOperationStart());
-        //busETA.setText(busList.getFrequency());
+        busETA.setText(busList.getETA());
 
         return convertView;
     }

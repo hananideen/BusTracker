@@ -142,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
                 bus = new LatLng(Double.parseDouble(busList.getBusLat()),Double.parseDouble(busList.getBusLng()));
                 map.addMarker(new MarkerOptions().position(bus).title(busList.getBusNumber())
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                Toast.makeText(MainActivity.this, busList.getBusLat() +busList.getBusLng(), Toast.LENGTH_SHORT).show();
                 CameraUpdate zoomLocation = CameraUpdateFactory.newLatLngZoom(bus, 15);
                 map.animateCamera(zoomLocation);
             }

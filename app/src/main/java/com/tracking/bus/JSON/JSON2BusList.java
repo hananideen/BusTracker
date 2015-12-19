@@ -19,7 +19,7 @@ public class JSON2BusList {
             busName= json.optString("bus_id");
             busLat = json.optString("lat");
             busLng = json.optString("lng");
-            //operationEnd = json.optString("operation_end");
+            eta = json.optString("eta");
         }
         else{
             busName = "";
