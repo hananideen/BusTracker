@@ -42,6 +42,8 @@
         android:layout_height="wrap_content"
         android:text="Fav"
         android:id="@+id/btnFav"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button_bg"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />

@@ -115,12 +115,12 @@ public class MainActivity extends AppCompatActivity {
 
             CameraUpdate zoomLocation = CameraUpdateFactory.newLatLngZoom(myLoc, 15);
             map.addMarker(new MarkerOptions().position(myLoc).title("My Location ")
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.icon_men)));
             map.animateCamera(zoomLocation);
 
             busStop = new LatLng(2.9445361,101.7654237);
             map.addMarker(new MarkerOptions().position(busStop).title("Bus Stop")
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.icon_busstand)));
 
             String url = getDirectionsUrl(busStop, myLoc);
             DownloadTask downloadTask = new DownloadTask();
@@ -141,8 +141,8 @@ public class MainActivity extends AppCompatActivity {
                 BusList busList = busListAdapter.getBusList(position);
                 bus = new LatLng(Double.parseDouble(busList.getBusLat()),Double.parseDouble(busList.getBusLng()));
                 map.addMarker(new MarkerOptions().position(bus).title(busList.getBusNumber())
-                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-                Toast.makeText(MainActivity.this, busList.getBusLat() +busList.getBusLng(), Toast.LENGTH_SHORT).show();
+                        .icon(BitmapDescriptorFactory.fromResource(R.mipmap.icon_bus)));
+                //Toast.makeText(MainActivity.this, busList.getBusLat() +busList.getBusLng(), Toast.LENGTH_SHORT).show();
                 CameraUpdate zoomLocation = CameraUpdateFactory.newLatLngZoom(bus, 15);
                 map.animateCamera(zoomLocation);
             }
