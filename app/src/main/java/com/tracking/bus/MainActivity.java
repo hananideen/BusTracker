@@ -178,40 +178,40 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void selectDrawerItem(MenuItem menuItem) {
-        Fragment fragment = null;
+        //Fragment fragment = null;
 
-        Class fragmentClass;
+        //Class fragmentClass;
         switch(menuItem.getItemId()) {
             case R.id.nav_first_fragment:
-                fragmentClass = NearbyFragment.class;
+                //fragmentClass = NearbyFragment.class;
                 break;
             case R.id.nav_second_fragment:
-                fragmentClass = PlannerFragment.class;
+                //fragmentClass = PlannerFragment.class;
                 break;
             case R.id.nav_third_fragment:
-                fragmentClass = FavouriteFragment.class;
-                break;
-            case R.id.nav_fourth_fragment:
                 Intent intent = new Intent(MainActivity.this, FavouriteActivity.class);
                 startActivity(intent);
-                fragmentClass = FavouriteFragment.class;
+                //fragmentClass = FavouriteFragment.class;
+                break;
+            case R.id.nav_fourth_fragment:
+                //fragmentClass = FavouriteFragment.class;
                 break;
             default:
-                fragmentClass = NearbyFragment.class;
+                //fragmentClass = NearbyFragment.class;
         }
 
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            fragment = (Fragment) fragmentClass.newInstance();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
 
-        menuItem.setChecked(true);
-        setTitle(menuItem.getTitle());
-        mDrawer.closeDrawers();
+//        menuItem.setChecked(true);
+//        setTitle(menuItem.getTitle());
+//        mDrawer.closeDrawers();
     }
 
 

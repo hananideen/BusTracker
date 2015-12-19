@@ -2,11 +2,14 @@ package com.tracking.bus.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.toolbox.NetworkImageView;
 import com.tracking.bus.R;
@@ -57,12 +60,21 @@ public class BusListAdapter extends BaseAdapter {
         TextView busNum = (TextView) convertView.findViewById(R.id.tvBusNum);
         TextView busRoute = (TextView) convertView.findViewById(R.id.tvBusRoute);
         TextView busETA = (TextView) convertView.findViewById(R.id.tvETA);
+        Button favBtn = (Button) convertView.findViewById(R.id.btnFav);
 
         busList = BusList.get(position);
 
         busNum.setText(busList.getBusNumber());
         //busRoute.setText(busList.getOperationStart());
         busETA.setText(busList.getETA());
+
+        favBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mactivity, "Bus added to favourite", Toast.LENGTH_SHORT).show();
+                Log.e("button!!!", busList.getBusNumber());
+            }
+        });
 
         return convertView;
     }
