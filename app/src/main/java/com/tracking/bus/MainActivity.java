@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
         View header = LayoutInflater.from(this).inflate(R.layout.nav_header, null);
         nvDrawer.addHeaderView(header);
+        nvDrawer.inflateHeaderView(R.layout.nav_header2);
 
         tvName = (TextView) header.findViewById(R.id.tvName);
         ivIcon = (ImageView) header.findViewById(R.id.ivIcon);
@@ -184,6 +185,9 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = PlannerFragment.class;
                 break;
             case R.id.nav_third_fragment:
+                fragmentClass = FavouriteFragment.class;
+                break;
+            case R.id.nav_fourth_fragment:
                 fragmentClass = FavouriteFragment.class;
                 break;
             default:

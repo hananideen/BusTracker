@@ -1,9 +1,10 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#673AB7</item>
-        <item name="colorPrimaryDark">#512DA8</item>
-        <item name="colorAccent">#FF4081</item>
+        <item name="colorPrimary">#013643</item>
+        <item name="colorPrimaryDark">#002c39</item>
+        <item name="colorAccent">#e31e25</item>
+        <!--<item name="merahpekat">#a61d21</item>-->
     </style>
 
 </resources>

@@ -6,9 +6,13 @@
             android:title="Nearby" />
         <item
             android:id="@+id/nav_second_fragment"
-            android:title="Planner" />
+            android:title="Journey Planner" />
         <item
             android:id="@+id/nav_third_fragment"
             android:title="Favorite" />
+
+        <item
+            android:id="@+id/nav_fourth_fragment"
+            android:title="Settings" />
     </group>
 </menu>
