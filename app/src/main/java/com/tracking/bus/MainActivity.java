@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -116,8 +117,7 @@ public class MainActivity extends AppCompatActivity {
             connect(sendLat, sendLong);
 
             CameraUpdate zoomLocation = CameraUpdateFactory.newLatLngZoom(myLoc, 15);
-            map.addMarker(new MarkerOptions().position(myLoc).title("My Location " + String.format("%.3f", latitude)
-                    + ", " + String.format("%.3f", longitude))
+            map.addMarker(new MarkerOptions().position(myLoc).title("My Location ")
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
             map.animateCamera(zoomLocation);
 
@@ -142,8 +142,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 BusList busList = busListAdapter.getBusList(position);
-                bus = new LatLng(2.9445361,101.7654237);
-                map.addMarker(new MarkerOptions().position(busStop).title(busList.getBusNumber())
+                bus = new LatLng(Double.parseDouble(busList.getBusLat()),Double.parseDouble(busList.getBusLng()));
+                map.addMarker(new MarkerOptions().position(bus).title(busList.getBusNumber())
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
             }
         });
@@ -218,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         JSONObject obj = response.getJSONObject(i);
                         BusList busList = new BusList(new Json2BusList(obj));
-                        BusList.add(0, busList);
+                        BusList.add(busList);
                         busListAdapter.notifyDataSetChanged();
                     } catch (JSONException e) {
                         e.printStackTrace();

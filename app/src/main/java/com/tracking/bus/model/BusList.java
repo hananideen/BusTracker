@@ -7,21 +7,21 @@ import com.tracking.bus.JSON.Json2BusList;
  */
 public class BusList {
 
-    public String BusNumber, Frequency, OperationStart, OperationEnd;
+    public String BusNumber, BusLat, BusLng, OperationEnd;
 
     public BusList() {}
 
     public BusList (String busName, String frequency, String operationStart, String operationEnd){
         BusNumber = busName;
-        Frequency = frequency;
-        OperationStart = operationStart;
+        BusLat = frequency;
+        BusLng = operationStart;
         OperationEnd = operationEnd;
     }
 
     public BusList (Json2BusList jBus) {
         BusNumber = jBus.busName;
-        //Frequency = jBus.frequency;
-        //OperationStart = jBus.operationStart;
+        BusLat = jBus.busLat;
+        BusLng = jBus.busLng;
         //OperationEnd = jBus.operationEnd;
     }
 
@@ -29,12 +29,12 @@ public class BusList {
         return BusNumber;
     }
 
-    public String getFrequency(){
-        return Frequency;
+    public String getBusLat(){
+        return BusLat;
     }
 
-    public String getOperationStart(){
-        return OperationStart;
+    public String getBusLng(){
+        return BusLng;
     }
 
     public String getOperationEnd(){
