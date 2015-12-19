@@ -1,6 +1,6 @@
 package com.tracking.bus.model;
 
-import com.tracking.bus.JSON.Json2BusList;
+import com.tracking.bus.JSON.JSON2BusList;
 
 /**
  * Created by Hananideen on 19/12/2015.
@@ -18,7 +18,7 @@ public class BusList {
         OperationEnd = operationEnd;
     }
 
-    public BusList (Json2BusList jBus) {
+    public BusList (JSON2BusList jBus) {
         BusNumber = jBus.busName;
         BusLat = jBus.busLat;
         BusLng = jBus.busLng;
