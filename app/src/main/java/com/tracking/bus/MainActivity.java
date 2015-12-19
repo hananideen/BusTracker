@@ -16,6 +16,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawer;
@@ -24,15 +33,20 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle drawerToggle;
     private TextView tvName;
     private ImageView ivIcon;
+    GPSTracker gps;
+    LatLng myLoc, destination;
+    double latitude, longitude, latServer, longServer;
+    String sendLat, sendLong;
+    GoogleMap map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.flContent, new NearbyFragment()).commit();
-        }
+//        if (savedInstanceState == null) {
+//            getSupportFragmentManager().beginTransaction().replace(R.id.flContent, new NearbyFragment()).commit();
+//        }
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -50,6 +64,29 @@ public class MainActivity extends AppCompatActivity {
         ivIcon = (ImageView) header.findViewById(R.id.ivIcon);
 
         setupDrawerContent(nvDrawer);
+
+        SupportMapFragment fm = (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
+        map = fm.getMap();
+        map.setMyLocationEnabled(true);
+
+        gps = new GPSTracker(MainActivity.this);
+        if(gps.canGetLocation()) {
+            latitude = gps.getLatitude();
+            longitude = gps.getLongitude();
+            myLoc = new LatLng(latitude, longitude);
+            sendLat =  String.valueOf(latitude);
+            sendLong = String.valueOf(longitude);
+            //new Send().execute("http://mynetsys.com/restaurant/deliverylocation.php?latitude="+sendLat+"&longitude="+sendLong);
+
+            CameraUpdate zoomLocation = CameraUpdateFactory.newLatLngZoom(myLoc, 15);
+            Marker driver = map.addMarker(new MarkerOptions().position(myLoc).title("My Location " + String.format("%.3f", latitude)
+                    + ", " + String.format("%.3f", longitude))
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
+            map.animateCamera(zoomLocation);
+
+        } else {
+            gps.showSettingsAlert();
+        }
     }
 
     private ActionBarDrawerToggle setupDrawerToggle() {
