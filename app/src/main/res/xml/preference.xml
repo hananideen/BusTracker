@@ -1,0 +1,22 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Coming Soon! :)">
+
+        <SwitchPreference
+            android:title="Notification"
+            android:defaultValue="true"
+            android:key="notification" />
+
+        <Preference
+            android:title="Profile"
+            android:key="data" />
+
+        <Preference
+            android:title="Change Password"
+            android:key="data" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

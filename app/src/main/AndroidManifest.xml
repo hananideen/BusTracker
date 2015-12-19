@@ -57,6 +57,11 @@
             android:label="Find Bus" >
         </activity>
 
+        <activity
+            android:name=".SettingsActivity"
+            android:label="Settings" >
+        </activity>
+
 
     </application>
 
