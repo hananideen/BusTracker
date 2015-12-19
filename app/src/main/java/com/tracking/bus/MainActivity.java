@@ -186,6 +186,8 @@ public class MainActivity extends AppCompatActivity {
                 //fragmentClass = NearbyFragment.class;
                 break;
             case R.id.nav_second_fragment:
+                Intent intent1 = new Intent(MainActivity.this, FindBusActivity.class);
+                startActivity(intent1);
                 //fragmentClass = PlannerFragment.class;
                 break;
             case R.id.nav_third_fragment:
@@ -211,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        menuItem.setChecked(true);
 //        setTitle(menuItem.getTitle());
-//        mDrawer.closeDrawers();
+        mDrawer.closeDrawers();
     }
 
 

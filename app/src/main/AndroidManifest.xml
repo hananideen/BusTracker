@@ -49,7 +49,12 @@
 
         <activity
             android:name=".FavouriteActivity"
-            android:label="Favorite" >
+            android:label="Favourite" >
+        </activity>
+
+        <activity
+            android:name=".FindBusActivity"
+            android:label="Find Bus" >
         </activity>
 
 

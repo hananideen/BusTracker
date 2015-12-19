@@ -6,7 +6,7 @@
             android:title="Nearby" />
         <item
             android:id="@+id/nav_second_fragment"
-            android:title="Journey Planner" />
+            android:title="Find Bus" />
         <item
             android:id="@+id/nav_third_fragment"
             android:title="Favorite" />
