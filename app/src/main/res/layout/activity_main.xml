@@ -17,9 +17,25 @@
 
         <fragment
             android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            class="com.google.android.gms.maps.SupportMapFragment" />
+
+        <TextView
+            android:id="@+id/tv_distance_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            class="com.google.android.gms.maps.SupportMapFragment" />
+            android:text="Distance: 0km, ETA: 0min "
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_alignParentTop="true" />
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/lvBus">
+
+        </ListView>
 
         <FrameLayout
             android:id="@+id/flContent"
