@@ -1,5 +1,6 @@
 package com.tracking.bus;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -141,6 +142,8 @@ public class MainActivity extends AppCompatActivity {
                 bus = new LatLng(Double.parseDouble(busList.getBusLat()),Double.parseDouble(busList.getBusLng()));
                 map.addMarker(new MarkerOptions().position(bus).title(busList.getBusNumber())
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                CameraUpdate zoomLocation = CameraUpdateFactory.newLatLngZoom(bus, 15);
+                map.animateCamera(zoomLocation);
             }
         });
 
@@ -188,6 +191,8 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = FavouriteFragment.class;
                 break;
             case R.id.nav_fourth_fragment:
+                Intent intent = new Intent(MainActivity.this, FavouriteActivity.class);
+                startActivity(intent);
                 fragmentClass = FavouriteFragment.class;
                 break;
             default:
@@ -372,7 +377,7 @@ public class MainActivity extends AppCompatActivity {
                 lineOptions.color(Color.RED);
             }
 
-            tvDistanceDuration.setText("Distance: "+distance +", ETA: "+duration );
+            tvDistanceDuration.setText("Distance to bus stop: "+distance);
 
             line = map.addPolyline(lineOptions);
         }
