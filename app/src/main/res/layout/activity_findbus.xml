@@ -27,6 +27,8 @@
         android:layout_height="wrap_content"
         android:text="Find Bus"
         android:id="@+id/btnFindBus"
+        android:background="@drawable/button_bg"
+        android:textColor="@android:color/white"
         android:layout_gravity="center_horizontal" />
 
     <ImageView
@@ -35,5 +37,5 @@
         android:id="@+id/ivBus"
         android:layout_gravity="center_horizontal"
         android:visibility="invisible"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@drawable/find"/>
 </LinearLayout>
