@@ -196,6 +196,8 @@ public class MainActivity extends AppCompatActivity {
                 //fragmentClass = FavouriteFragment.class;
                 break;
             case R.id.nav_fourth_fragment:
+                Intent intent2 = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent2);
                 //fragmentClass = FavouriteFragment.class;
                 break;
             default:
@@ -216,9 +218,10 @@ public class MainActivity extends AppCompatActivity {
         mDrawer.closeDrawers();
     }
 
+    //188.166.234.67
 
     public void connect (String lat, String lng){
-        JsonArrayRequest busRequest = new JsonArrayRequest("http://188.166.234.67/hackathon/nearby/bus/" +lat +"/" +lng +"/", new Response.Listener<JSONArray>() {
+        JsonArrayRequest busRequest = new JsonArrayRequest("http://ariffazmi.my/hackathon/nearby/bus/" +lat +"/" +lng +"/", new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 for (int i = 0; i < response.length(); i++) {
