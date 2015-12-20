@@ -7,7 +7,7 @@ import com.tracking.bus.JSON.JSON2BusList;
  */
 public class BusList {
 
-    public String BusNumber, BusLat, BusLng, ETA;
+    public String BusNumber, BusLat, BusLng, ETA, BusRoute;
 
     public BusList() {}
 
@@ -39,5 +39,25 @@ public class BusList {
 
     public String getETA(){
         return ETA;
+    }
+
+    public void setBusNumber (String busNumber) {
+        BusNumber = busNumber;
+    }
+
+    public void setBusLat (String busLat) {
+        BusLat = busLat;
+    }
+
+    public void setBusLng (String busLng) {
+        BusLng = busLng;
+    }
+
+    public void setETA (String eta) {
+        ETA = eta;
+    }
+
+    public void setBusRoute (String busRoute) {
+        BusRoute = busRoute;
     }
 }

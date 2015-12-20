@@ -240,6 +240,7 @@ public class MainActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("VolleyServer", "Error: " + error.getMessage());
                 Toast.makeText(getApplication(), "Cannot connect to server", Toast.LENGTH_SHORT).show();
+                LoadData();
                 busListAdapter.notifyDataSetChanged();
             }
         });
@@ -386,6 +387,38 @@ public class MainActivity extends AppCompatActivity {
             tvDistanceDuration.setText("Distance to bus stop: "+distance);
 
             line = map.addPolyline(lineOptions);
+        }
+    }
+
+    public void LoadData (){
+
+        for(int i =0;i<5;i++) {
+            if (i == 0) {
+                BusList busList = new BusList();
+                busList.setBusNumber("522");
+                busList.setBusLat("2.9615434");
+                busList.setBusLng("101.7774194");
+                busList.setBusRoute("Cyber - Putrajaya");
+                busList.setETA("7 min");
+                BusList.add(busList);
+            } else if (i == 1) {
+                BusList busList = new BusList();
+                busList.setBusNumber("520");
+                busList.setBusLat("2.9428849");
+                busList.setBusLng("101.7616948");
+                busList.setBusRoute("Cyberia - Shaftbury");
+                busList.setETA("3 min");
+                BusList.add(busList);
+            } else if (i == 2){
+                BusList busList = new BusList();
+                busList.setBusNumber("521");
+                busList.setBusLat("2.9311827");
+                busList.setBusLng("101.7654954");
+                busList.setBusRoute("MMU - Alamanda");
+                busList.setETA("4 min");
+                BusList.add(busList);
+            }
+
         }
     }
 
